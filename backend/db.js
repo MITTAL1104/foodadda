@@ -10,14 +10,13 @@ const mongoDB = async () => {
       if (err) console.log("---", err);
       else {
         console.log("Connected to MongoDB");
-
-        const fetched_data = await mongoose.connection.db.collection("food_items");
-        fetched_data.find({}).toArray(function (err, data) {
-          if (err) console.log(err);
-          else {
-            global.food_items = data;
-          }
-        });
+        // const fetched_data = await mongoose.connection.db.collection("food_items");
+        // fetched_data.find({}).toArray(function (err, data) {
+        //   if (err) console.log(err);
+        //   else {
+        //     global.food_items = data;
+        //   }
+        // });
       }
     }
   );

@@ -1,17 +1,16 @@
 const express = require("express");
 const router = express.Router();
+const mongoose = require('mongoose');
 
-
-router.post('/foodData',(req,res)=>{
-    try{
-        console.log(global);
-        res.send([global.food_items,global.food_category])
+router.post('/foodData',async (req,res)=>{
+    try {
+        // Fetch data from MongoDB collection
+        const foodItems = await mongoose.connection.db.collection('food_items').find({}).toArray();
+        res.send(foodItems);
+    } catch (err) {
+        console.error("Error fetching data:", err);
+        res.status(500).send("Internal Server Error");
     }
-    catch(err)
-    {
-        console.error(err.message);
-        res.send("Error");
-    }
-})
+});
 
 module.exports = router;
