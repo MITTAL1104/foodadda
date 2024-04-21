@@ -31,7 +31,8 @@ const SignUp = () => {
     console.log(json);
     if (!json.success) {
       alert("Enter valid credentials");
-    }
+    }else
+    alert("Signup successful");
   };
 
   return (
