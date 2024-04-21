@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const mongoURL =
-  "mongodb+srv://rmittal1be21:raghav1603@cluster0.5s67rnl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://rmittal1be21:raghav1603@cluster0.5s67rnl.mongodb.net/gofoodmern?retryWrites=true&w=majority&appName=Cluster0";
 
 const mongoDB = async () => {
   await mongoose.connect(
@@ -11,9 +11,7 @@ const mongoDB = async () => {
       else {
         console.log("Connected to MongoDB");
 
-        const fetched_data = await mongoose.connection.db.collection(
-          "food_items"
-        );
+        const fetched_data = await mongoose.connection.db.collection("food_items");
         fetched_data.find({}).toArray(function (err, data) {
           if (err) console.log(err);
           else {
