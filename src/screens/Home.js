@@ -18,7 +18,8 @@ const Home = () => {
     response = await response.json();
     setFoodItem(response[0]);
     setFoodCat(response[1]);
-    // console.log(response[0], response[1]);
+    //console.log(response[0], response[1]);
+    console.log(response[1]);
   };
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const Home = () => {
         <Carousel />
       </div>
       <div className="container">
-        {foodCat
+        {foodCat && Array.isArray(foodCat)
           ? foodCat.map((data) => {
               return (
                 <div className="row mb-3">
